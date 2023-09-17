@@ -18,4 +18,7 @@ migrateup:
 migratedown:
 	migrate -path db/migration -database "$(DB_URL)" -verbose down
 
-.PHONY: postgresup postgresdown createdb dropdb migrateup migratedown
+sqlc:
+	sqlc generate
+
+.PHONY: postgresup postgresdown createdb dropdb migrateup migratedown sqlc
