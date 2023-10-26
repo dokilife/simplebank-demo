@@ -5,7 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Server serves HTTP requests for our banking service.
+// Server serves HTTP requests for our service.
 type Server struct {
 	store  *db.Store
 	router *gin.Engine
