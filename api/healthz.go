@@ -6,6 +6,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+type healthResponse struct {
+	Message string `json:"message"`
+}
+
 func (server *Server) healthz(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, "Pong")
+	rsp := healthResponse{
+		Message: "Pong",
+	}
+	ctx.JSON(http.StatusOK, rsp)
 }
