@@ -132,3 +132,17 @@
     make db_docs
     ```
 - Access the DB documentation at [this address](https://dbdocs.io/yokaimeow/doki). Password: secret
+
+### How to run
+
+- Run server:
+
+    ```bash
+    make server
+    ```
+
+- Run test:
+
+    ```bash
+    make test
+    ```
