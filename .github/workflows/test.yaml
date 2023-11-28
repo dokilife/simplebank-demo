@@ -16,7 +16,7 @@ jobs:
       postgres:
         image: postgres:16.1-alpine
         env:
-          POSTGRES_USER: root
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: secret
           POSTGRES_DB: doki
         ports:
