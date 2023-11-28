@@ -1,4 +1,4 @@
-DB_URL=postgresql://root:secret@localhost:5432/doki?sslmode=disable
+DB_URL=postgresql://postgres:secret@localhost:5432/doki?sslmode=disable
 
 composeup:
 	docker compose up -d
@@ -7,7 +7,7 @@ composedown:
 	docker compose down
 
 createdb:
-	docker exec -it doki-postgres createdb --username=root --owner=root doki
+	docker exec -it doki-postgres createdb --username=postgres --owner=postgres doki
 
 dropdb:
 	docker exec -it doki-postgres dropdb doki
