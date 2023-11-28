@@ -6,13 +6,19 @@ services:
     container_name: doki-postgres
     restart: unless-stopped
     environment:
-      - POSTGRES_USER=root
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=secret
       - POSTGRES_DB=doki
     ports:
-      - 5432:5432
+      - "5432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
+  redis:
+    image: redis:7.2.3-alpine3.18
+    container_name: doki-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
   api:
     build:
       context: .
@@ -23,9 +29,11 @@ services:
       - "8080:8080"
       - "9090:9090"
     environment:
-      - DB_SOURCE=postgresql://root:secret@postgres:5432/doki?sslmode=disable
+      - DB_SOURCE=postgresql://postgres:secret@postgres:5432/doki?sslmode=disable
+      - REDIS_ADDRESS=redis:6379
     depends_on:
       - postgres
+      - redis
     entrypoint:
       [
         "/app/wait-for.sh",

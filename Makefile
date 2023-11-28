@@ -1,9 +1,9 @@
 DB_URL=postgresql://root:secret@localhost:5432/doki?sslmode=disable
 
-postgresup:
+composeup:
 	docker compose up -d
 
-postgresdown:
+composedown:
 	docker compose down
 
 createdb:
@@ -55,4 +55,4 @@ proto:
 evans:
 	evans --host localhost --port 9090 -r repl
 
-.PHONY: postgresup postgresdown createdb dropdb migrateup migratedown migrateup1 migratedown1 db_docs db_schema sqlc test server mock proto evans
+.PHONY: composeup composedown createdb dropdb migrateup migratedown migrateup1 migratedown1 db_docs db_schema sqlc test server mock proto evans
