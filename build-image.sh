@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TAG=1.2.2
+TAG=1.3.1
 
 vault kv get -address https://vault.doki.life -mount=doki -format=json env | jq -r '.data.data | to_entries[] | join("=")' > app.env
 
